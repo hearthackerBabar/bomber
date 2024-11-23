@@ -73,7 +73,6 @@ def send_email(receiver_email, num_emails):
         message['From'] = SENDER_EMAIL
         message['To'] = receiver_email
         message['Subject'] = subject
-        
         message.attach(MIMEText(body, 'plain'))
         
         # Connect to the SMTP server
@@ -83,16 +82,15 @@ def send_email(receiver_email, num_emails):
             server.login(SENDER_EMAIL, SENDER_PASSWORD)
             server.sendmail(SENDER_EMAIL, receiver_email, message.as_string())
             server.quit()
-            print(f"Email sent successfully to {receiver_email} with company {company}")
-            success_count += 1  # Increment success counter
+            success_count += 1  # Increment success count
+            print(f"Email sent successfully to {receiver_email}")
         except Exception as e:
-            print(f"Failed to send email to {receiver_email} with company {company}. Error: {e}")
-            failure_count += 1  # Increment failure counter
-    
-    # After sending all emails, print the result
-    print(f"\nTotal emails sent: {num_emails}")
-    print(f"Successfully sent: {success_count}")
-    print(f"Failed to send: {failure_count}")
+            failure_count += 1  # Increment failure count
+            print(f"Failed to send email to {receiver_email}: {str(e)}")
+
+    # Show the summary of success and failure counts
+    print(f"\nTotal emails sent successfully: {success_count}")
+    print(f"Total emails failed: {failure_count}")
     
     # Provide options to the user
     print("\nChoose an option:")
@@ -108,23 +106,26 @@ def send_email(receiver_email, num_emails):
         print("Invalid choice! Exiting...")
         exit()  # Exit if an invalid choice is made
 
-# Main function to handle the user input
+# Main function to start the program
 def main():
-    print_hacker_banner()
     while True:
+        print_hacker_banner()  # Display the main menu
         choice = input("Enter your choice: ")
+        
         if choice == "1":
             receiver_email = input("Enter the receiver's email: ")
             num_emails = int(input("Enter the number of emails to send: "))
-            send_email(receiver_email, num_emails)
+            if send_email(receiver_email, num_emails):
+                continue  # Go back to the main menu if the user chooses to go back
         elif choice == "2":
-            print("SMS Bomber (Dummy) selected. Exiting...")
-            exit()
+            print("Exiting the program...")
+            exit()  # Exit the program
         elif choice == "3":
-            print("Exiting...")
-            exit()
+            print("Exiting the program...")
+            exit()  # Exit the program
         else:
-            print("Invalid choice! Please choose again.")
+            print("Invalid choice! Please try again.")
 
+# Start the program
 if __name__ == "__main__":
     main()
