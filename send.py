@@ -34,7 +34,7 @@ def print_hacker_banner():
     print("Welcome to the Bomber Tool")
     print("Choose an option:")
     print("1. Email Bomber")
-    print("2. SMS Bomber (Dummy)")
+    print("2. SMS Bomber (under development)")
     print("3. Exit")
     print("\033[0m")
     time.sleep(1)
