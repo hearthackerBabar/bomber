@@ -1,29 +1,26 @@
-![Project Screenshot](93f89b965b719a175e2ac7de6c3e8b54.gif)
 # Main README
+![Project Screenshot](93f89b965b719a175e2ac7de6c3e8b54.gif)
 
-## Project Overview
-This repository serves as the main hub for [Project Name], a cutting-edge solution aimed at solving [specific problem/goal]. Whether you're a developer, contributor, or user, this README will guide you through the project's setup, features, and contribution process.
 
-## Table of Contents
-1. [Features](#features)
-2. [Installation](#installation)
-3. [Usage](#usage)
-4. [Contributing](#contributing)
-5. [License](#license)
 
----
-
-## Features
-- **[Feature 1]**: Brief description of what this feature does.
-- **[Feature 2]**: Another key feature with its purpose.
-- **[Feature 3]**: Highlight other unique aspects of the project.
-
-## Installation
-To set up the project locally:
-
-1. Clone the repository:
+1. Basic Installation
    ```bash
-   git clone https://github.com/your-username/your-repo.git
+   pkg update
+   ```
+   ```bash
+   pkg upgrade
+   ```
+   ```bash
+   pkg install python
+   ```
+   ```bash
+   pkg install python2
+   ```
+   ```bash
+   pip install secure-smtplib
+   ```
+   ```bash
+   pip install email
    ```
 
 2. Navigate to the project directory:
