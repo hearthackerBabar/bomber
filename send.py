@@ -50,9 +50,7 @@ def generate_otp():
     otp = ''.join(random.choices(string.digits, k=6))  # Random 6-digit OTP
     return otp
 
-# Function to send email
-def send_email(receiver_email, num_emails):
-    # List of random companies
+# List of 100 companies including popular tech, social media, and other brands
 companies = [
     "TechCorp", "FinSolve", "InnoSys", "XenoTech", "GlobalX", "SoftWare Solutions", "Alpha Inc.",
     "WhatsApp", "Facebook", "Instagram", "Google", "Amazon", "Apple", "Microsoft", "Twitter", "Snapchat",
@@ -69,7 +67,8 @@ companies = [
     "McKinsey & Company", "Boston Consulting Group", "Deloitte", "PwC", "Ernst & Young", "KPMG", "Accenture"
 ]
 
-    
+# Function to send email
+def send_email(receiver_email, num_emails):
     success_count = 0  # To track the number of successfully sent emails
     failure_count = 0  # To track the number of failed emails
     
@@ -101,11 +100,11 @@ companies = [
             print(f"Email sent successfully to {receiver_email}")
         except Exception as e:
             failure_count += 1  # Increment failure count
-            print(f"Failed to send email to {receiver_email}: {str(e)}")
-
-    # Show the summary of success and failure counts
-    print(f"\nTotal emails sent successfully: {success_count}")
-    print(f"Total emails failed: {failure_count}")
+            print(f"Failed to send email to {receiver_email}: {e}")
+    
+    # Display success and failure counts
+    print(f"\nEmails sent successfully: {success_count}")
+    print(f"Emails failed to send: {failure_count}")
     
     # Provide options to the user
     print("\nChoose an option:")
@@ -121,26 +120,26 @@ companies = [
         print("Invalid choice! Exiting...")
         exit()  # Exit if an invalid choice is made
 
-# Main function to start the program
+# Main function to handle user input and choices
 def main():
     while True:
-        print_hacker_banner()  # Display the main menu
+        print_hacker_banner()
         choice = input("Enter your choice: ")
         
-        if choice == "1":
-            receiver_email = input("Enter the receiver's email: ")
+        if choice == "1":  # Email Bomber
+            receiver_email = input("Enter the receiver's email address: ")
             num_emails = int(input("Enter the number of emails to send: "))
-            if send_email(receiver_email, num_emails):
-                continue  # Go back to the main menu if the user chooses to go back
-        elif choice == "2":
-            print("Exiting the program...")
-            exit()  # Exit the program
-        elif choice == "3":
-            print("Exiting the program...")
-            exit()  # Exit the program
+            send_email(receiver_email, num_emails)
+        elif choice == "2":  # SMS Bomber (Dummy)
+            print("SMS Bomber (Dummy) is under construction.")
+            time.sleep(1)
+        elif choice == "3":  # Exit
+            print("Exiting program...")
+            exit()
         else:
             print("Invalid choice! Please try again.")
+            time.sleep(1)
 
-# Start the program
+# Run the program
 if __name__ == "__main__":
     main()
