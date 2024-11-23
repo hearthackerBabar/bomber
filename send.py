@@ -10,15 +10,28 @@ import string
 # Function to print hacker-style banner
 def print_hacker_banner():
     os.system('cls' if os.name == 'nt' else 'clear')  # Only clear at the start
-    print("\033[1;32;40m")
+    print("\033[1;31;40m")  # Red color for the banner
     print("""
-    ███████╗██╗████████╗███████╗████████╗██╗  ██╗███████╗
-    ╚══██╔══╝██║╚══██╔══╝██╔════╝╚══██╔══╝██║  ██║██╔════╝
-       ██║   ██║   ██║   █████╗     ██║   ███████║█████╗  
-       ██║   ██║   ██║   ██╔══╝     ██║   ██╔══██║██╔══╝  
-       ██║   ██║   ██║   ███████╗   ██║   ██║  ██║███████╗
-       ╚═╝   ╚═╝   ╚═╝   ╚══════╝   ╚═╝   ╚═╝  ╚═╝╚══════╝
+  ____                  _               
+ |  _ \                | |              
+ | |_) | ___  _ __ ___ | |__   ___ _ __ 
+ |  _ < / _ \| '_ ` _ \| '_ \ / _ \ '__|
+ | |_) | (_) | | | | | | |_) |  __/ |   
+ |____/ \___/|_| |_| |_|_.__/ \___|_|   
+                                        
     """)
+    print("\033[0m")  # Reset the color after the banner
+
+    # Box with multi-colored text below the banner
+    print("\033[1;32;40m")  # Green color for the box
+    print("╔═════════════════════════════════════════╗")
+    print("\033[1;34;40m" + "║ " + "\033[1;33;40m" + "Author Name : Pak Anonymous" + "\033[1;34;40m" + " ║")
+    print("\033[1;34;40m" + "║ " + "\033[1;33;40m" + "Whatsapp Number : +923000448415" + "\033[1;34;40m" + " ║")
+    print("╚═════════════════════════════════════════╝")
+    print("\033[0m")  # Reset the color after the box
+
+
+
     print("\033[1;33;40m")
     print("Welcome to the Hacker Tool")
     print("Choose an option:")
