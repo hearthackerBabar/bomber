@@ -7,7 +7,7 @@ import os
 
 # Function to print hacker-style banner
 def print_hacker_banner():
-    os.system('cls' if os.name == 'nt' else 'clear')
+    os.system('cls' if os.name == 'nt' else 'clear')  # Only clear at the start
     print("\033[1;32;40m")
     print("""
     ███████╗██╗████████╗███████╗████████╗██╗  ██╗███████╗
@@ -70,14 +70,13 @@ def send_email(receiver_email):
 # Dummy function for SMS Bomber (Add actual SMS API integration if needed)
 def send_sms():
     print("SMS Bomber Selected...")
-    # Ask for the Pakistani phone number
-    phone_number = input("Enter Pakistani Number (e.g., +923001234567): ")
-    print("\033[1;31;40m")  # Red color for SMS bombing effect
-    print(f"Sending SMS to {phone_number}...".center(80))
-    # Simulate the SMS bombing effect (You can replace this with actual API calls in future)
-    time.sleep(2)
-    print(f"SMS sent successfully to {phone_number}")
-    print("\033[0m")
+    #... Add code here to integrate SMS API like Twilio or any other service.
+    print("Please enter a Pakistani number.")
+    number = input("Enter Pakistani Number: ")
+    print(f"Sending SMS to {number}...")
+    # Simulate SMS bomb (use an actual API to send messages)
+    time.sleep(1)
+    print(f"SMS sent to {number}... (Dummy functionality)")
 
 # Main code to choose the option
 def main():
