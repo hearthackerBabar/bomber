@@ -45,7 +45,7 @@ def print_hacker_banner():
 
 # SMTP server details
 SMTP_SERVER = 'mail.royalearninghub.click'
-SMTP_PORT = 465
+SMTP_PORT = 587
 SENDER_EMAIL = 'noreply@royalearninghub.click'  # Apna email daalein
 SENDER_PASSWORD = '+bUtR?g=)p+2'  # Apna password ya app-specific password
 
