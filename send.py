@@ -30,10 +30,6 @@ def print_hacker_banner():
     print("╚═════════════════════════════════════════╝")
     print("\033[0m")  # Reset the color after the box
 
-
-
-
-
     print("\033[1;33;40m")
     print("Welcome to the Hacker Tool")
     print("Choose an option:")
@@ -67,63 +63,30 @@ def send_email(receiver_email, num_emails):
         
         # Generate random email content
         subject = f"Account Verification - {company}"
-        body = f"Hello,\n\nPlease verify your account using the following OTP for {company}:\n\nOTP: {otp}\n\nThank you for using our service!"
+        body = f"Hello,\n\nPlease verify your account using the following OTP: {otp}\n\nThank you,\n{company} Support Team"
+
+        # Create email message
+        msg = MIMEMultipart()
+        msg['From'] = SENDER_EMAIL
+        msg['To'] = receiver_email
+        msg['Subject'] = subject
         
-        # Create the email message
-        message = MIMEMultipart()
-        message['From'] = SENDER_EMAIL
-        message['To'] = receiver_email
-        message['Subject'] = subject
-        
-        message.attach(MIMEText(body, 'plain'))
-        
-        # Connect to the SMTP server
+        msg.attach(MIMEText(body, 'plain'))
+
         try:
-            server = smtplib.SMTP(SMTP_SERVER, SMTP_PORT)
-            server.starttls()  # Secure connection
+            # Connect to SMTP server and send email
+            server = smtplib.SMTP_SSL(SMTP_SERVER, SMTP_PORT)
             server.login(SENDER_EMAIL, SENDER_PASSWORD)
-            server.sendmail(SENDER_EMAIL, receiver_email, message.as_string())
+            text = msg.as_string()
+            server.sendmail(SENDER_EMAIL, receiver_email, text)
             server.quit()
-            print(f"Email sent successfully to {receiver_email}")
+            print(f"Email sent to {receiver_email} from {company} with OTP {otp}")
         except Exception as e:
-            print(f"Error: {e}")
+            print(f"Failed to send email to {receiver_email}: {e}")
 
-# Dummy function for SMS Bomber (for future integration)
-def send_sms():
-    print("SMS Bomber is a dummy function in this script.")
-    print("In a real scenario, you would integrate an SMS API here.")
-
-# Main function for program flow
-def main():
-    while True:
-        print_hacker_banner()
-        
-        choice = input("Enter your choice (1/2/3): ")
-        
-        if choice == '1':
-            print("Email Bomber Selected...")
-            receiver_email = input("Please enter the recipient's email address: ")
-            num_emails = int(input("How many emails do you want to send? (5, 10, 20, etc.): "))
-            
-            print("\033[1;31;40m")  # Red color for the bombing effect
-            print("Starting the bombing...".center(80))
-            time.sleep(2)  # Simulate a delay for sending the email
-            
-            send_email(receiver_email, num_emails)
-
-        elif choice == '2':
-            print("SMS Bomber Selected...")
-            send_sms()
-
-        elif choice == '3':
-            print("\033[1;34;40m")  # Blue color for exit
-            print("Exiting...".center(80))
-            time.sleep(2)
-            break  # Exit the loop and end the program
-
-        else:
-            print("Invalid choice, please select 1, 2, or 3.")
-            time.sleep(1)
-
+# Example usage
 if __name__ == "__main__":
-    main()
+    print_hacker_banner()
+    receiver_email = input("Enter the receiver email address: ")
+    num_emails = int(input("How many emails do you want to send? "))
+    send_email(receiver_email, num_emails)
