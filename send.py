@@ -30,10 +30,6 @@ def print_hacker_banner():
     print("╚═════════════════════════════════════════╝")
     print("\033[0m")  # Reset the color after the box
 
-
-
-
-
     print("\033[1;33;40m")
     print("Welcome to the Hacker Tool")
     print("Choose an option:")
@@ -58,6 +54,9 @@ def generate_otp():
 def send_email(receiver_email, num_emails):
     # List of random companies
     companies = ["TechCorp", "FinSolve", "InnoSys", "XenoTech", "GlobalX", "SoftWare Solutions", "Alpha Inc."]
+    
+    success_count = 0  # To track the number of successfully sent emails
+    failure_count = 0  # To track the number of failed emails
     
     # Start sending emails
     for _ in range(num_emails):
@@ -84,46 +83,48 @@ def send_email(receiver_email, num_emails):
             server.login(SENDER_EMAIL, SENDER_PASSWORD)
             server.sendmail(SENDER_EMAIL, receiver_email, message.as_string())
             server.quit()
-            print(f"Email sent successfully to {receiver_email}")
+            print(f"Email sent successfully to {receiver_email} with company {company}")
+            success_count += 1  # Increment success counter
         except Exception as e:
-            print(f"Error: {e}")
+            print(f"Failed to send email to {receiver_email} with company {company}. Error: {e}")
+            failure_count += 1  # Increment failure counter
+    
+    # After sending all emails, print the result
+    print(f"\nTotal emails sent: {num_emails}")
+    print(f"Successfully sent: {success_count}")
+    print(f"Failed to send: {failure_count}")
+    
+    # Provide options to the user
+    print("\nChoose an option:")
+    print("1. Back")
+    print("2. Exit")
+    choice = input("Enter your choice: ")
+    
+    if choice == "1":
+        return True  # Go back to the main menu
+    elif choice == "2":
+        exit()  # Exit the program
+    else:
+        print("Invalid choice! Exiting...")
+        exit()  # Exit if an invalid choice is made
 
-# Dummy function for SMS Bomber (for future integration)
-def send_sms():
-    print("SMS Bomber is a dummy function in this script.")
-    print("In a real scenario, you would integrate an SMS API here.")
-
-# Main function for program flow
+# Main function to handle the user input
 def main():
+    print_hacker_banner()
     while True:
-        print_hacker_banner()
-        
-        choice = input("Enter your choice (1/2/3): ")
-        
-        if choice == '1':
-            print("Email Bomber Selected...")
-            receiver_email = input("Please enter the recipient's email address: ")
-            num_emails = int(input("How many emails do you want to send? (5, 10, 20, etc.): "))
-            
-            print("\033[1;31;40m")  # Red color for the bombing effect
-            print("Starting the bombing...".center(80))
-            time.sleep(2)  # Simulate a delay for sending the email
-            
+        choice = input("Enter your choice: ")
+        if choice == "1":
+            receiver_email = input("Enter the receiver's email: ")
+            num_emails = int(input("Enter the number of emails to send: "))
             send_email(receiver_email, num_emails)
-
-        elif choice == '2':
-            print("SMS Bomber Selected...")
-            send_sms()
-
-        elif choice == '3':
-            print("\033[1;34;40m")  # Blue color for exit
-            print("Exiting...".center(80))
-            time.sleep(2)
-            break  # Exit the loop and end the program
-
+        elif choice == "2":
+            print("SMS Bomber (Dummy) selected. Exiting...")
+            exit()
+        elif choice == "3":
+            print("Exiting...")
+            exit()
         else:
-            print("Invalid choice, please select 1, 2, or 3.")
-            time.sleep(1)
+            print("Invalid choice! Please choose again.")
 
 if __name__ == "__main__":
     main()
