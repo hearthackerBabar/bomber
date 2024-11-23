@@ -25,8 +25,8 @@ def print_hacker_banner():
     # Box with multi-colored text below the banner
     print("\033[1;32;40m")  # Green color for the box
     print("╔═════════════════════════════════════════╗")
-    print("\033[1;34;40m" + "║ " + "\033[1;33;40m" + "Author Name : Pak Anonymous" + "\033[1;34;40m" +           " ║")
-    print("\033[1;34;40m" + "║ " + "\033[1;33;40m" + "Whatsapp Number : +923000448415" + "\033[1;34;40m" +           " ║")
+    print("\033[1;34;40m" + "║ " + "\033[1;33;40m" + "Author Name : Pak Anonymous" +           "\033[1;34;40m" +           " ║")
+    print("\033[1;34;40m" + "║ " + "\033[1;33;40m" + "Whatsapp Number : +923000448415"           + "\033[1;34;40m" +           " ║")
     print("╚═════════════════════════════════════════╝")
     print("\033[0m")  # Reset the color after the box
 
