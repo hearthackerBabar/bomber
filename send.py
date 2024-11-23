@@ -53,7 +53,22 @@ def generate_otp():
 # Function to send email
 def send_email(receiver_email, num_emails):
     # List of random companies
-    companies = ["TechCorp", "FinSolve", "InnoSys", "XenoTech", "GlobalX", "SoftWare Solutions", "Alpha Inc."]
+companies = [
+    "TechCorp", "FinSolve", "InnoSys", "XenoTech", "GlobalX", "SoftWare Solutions", "Alpha Inc.",
+    "WhatsApp", "Facebook", "Instagram", "Google", "Amazon", "Apple", "Microsoft", "Twitter", "Snapchat",
+    "LinkedIn", "YouTube", "TikTok", "Pinterest", "Reddit", "Spotify", "Netflix", "Uber", "Airbnb",
+    "PayPal", "eBay", "Shopify", "Slack", "Zoom", "Dropbox", "Salesforce", "Tesla", "SpaceX",
+    "Dell", "HP", "Lenovo", "Asus", "Nvidia", "AMD", "Intel", "Qualcomm", "Cisco", "Samsung",
+    "Huawei", "Sony", "LG", "Panasonic", "Bose", "Fitbit", "GoPro", "Nikon", "Canon", "Fujifilm",
+    "Adobe", "Autodesk", "VMware", "Oracle", "SAP", "Adobe Systems", "Spotify", "Pinterest", "Spotify",
+    "WordPress", "Trello", "Zoom Video Communications", "GitHub", "Bitbucket", "GitLab", "Docker", "Kubernetes",
+    "Atlassian", "Shopify", "Stripe", "Airbnb", "Uber Eats", "GrubHub", "DoorDash", "Instacart", "Postmates",
+    "WeWork", "Slack Technologies", "Xero", "Squarespace", "BigCommerce", "Wix", "Bluehost", "GoDaddy",
+    "Shopify", "Vimeo", "Yelp", "Expedia", "Booking.com", "Hulu", "Disney", "WarnerMedia", "Fox",
+    "NBCUniversal", "CNN", "BBC", "The New York Times", "The Washington Post", "Bloomberg", "Forbes",
+    "McKinsey & Company", "Boston Consulting Group", "Deloitte", "PwC", "Ernst & Young", "KPMG", "Accenture"
+]
+
     
     success_count = 0  # To track the number of successfully sent emails
     failure_count = 0  # To track the number of failed emails
