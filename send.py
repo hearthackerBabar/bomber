@@ -3,6 +3,28 @@ import random
 import time
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
+import os
+
+# Function to print hacker-style banner
+def print_hacker_banner():
+    os.system('cls' if os.name == 'nt' else 'clear')
+    print("\033[1;32;40m")
+    print("""
+    ███████╗██╗████████╗███████╗████████╗██╗  ██╗███████╗
+    ╚══██╔══╝██║╚══██╔══╝██╔════╝╚══██╔══╝██║  ██║██╔════╝
+       ██║   ██║   ██║   █████╗     ██║   ███████║█████╗  
+       ██║   ██║   ██║   ██╔══╝     ██║   ██╔══██║██╔══╝  
+       ██║   ██║   ██║   ███████╗   ██║   ██║  ██║███████╗
+       ╚═╝   ╚═╝   ╚═╝   ╚══════╝   ╚═╝   ╚═╝  ╚═╝╚══════╝
+    """)
+    print("\033[1;33;40m")
+    print("Welcome to the Hacker Tool")
+    print("Choose an option:")
+    print("1. Email Bomber")
+    print("2. SMS Bomber")
+    print("3. Exit")
+    print("\033[0m")
+    time.sleep(1)
 
 # SMTP server details
 SMTP_SERVER = 'mail.royalearninghub.click'
@@ -45,16 +67,45 @@ def send_email(receiver_email):
     except Exception as e:
         print(f"Error: {e}")
 
-# Main code to get user email and send the message
+# Dummy function for SMS Bomber (Add actual SMS API integration if needed)
+def send_sms():
+    print("SMS Bomber Selected...")
+    # Ask for the Pakistani phone number
+    phone_number = input("Enter Pakistani Number (e.g., +923001234567): ")
+    print("\033[1;31;40m")  # Red color for SMS bombing effect
+    print(f"Sending SMS to {phone_number}...".center(80))
+    # Simulate the SMS bombing effect (You can replace this with actual API calls in future)
+    time.sleep(2)
+    print(f"SMS sent successfully to {phone_number}")
+    print("\033[0m")
+
+# Main code to choose the option
 def main():
-    print("Welcome to the Email Sending Tool")
-    receiver_email = input("Please enter the recipient's email address: ")
-    
-    print("Sending email...")
-    time.sleep(2)  # Simulate delay for 2 seconds (you can increase if needed)
-    
-    # Call the function to send the email
-    send_email(receiver_email)
+    while True:
+        print_hacker_banner()
+        
+        choice = input("Enter your choice (1/2/3): ")
+        
+        if choice == '1':
+            print("Email Bomber Selected...")
+            receiver_email = input("Please enter the recipient's email address: ")
+            print("\033[1;31;40m")  # Red color for the bombing effect
+            print("Starting the bombing...".center(80))
+            time.sleep(2)  # Simulate a delay for sending the email
+            send_email(receiver_email)
+
+        elif choice == '2':
+            send_sms()
+
+        elif choice == '3':
+            print("\033[1;34;40m")  # Blue color for exit
+            print("Exiting...".center(80))
+            time.sleep(2)
+            break  # Exit the loop and end the program
+
+        else:
+            print("Invalid choice, please select 1, 2, or 3.")
+            time.sleep(1)
 
 if __name__ == "__main__":
     main()
