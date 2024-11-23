@@ -1,6 +1,1 @@
-## Table of Contents
-- [Features](#features)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
+![Project Screenshot](93f89b965b719a175e2ac7de6c3e8b54.gif)
