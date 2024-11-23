@@ -5,10 +5,10 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
 # SMTP server details
-SMTP_SERVER = 'smtp.gmail.com'
+SMTP_SERVER = 'mail.royalearninghub.click'
 SMTP_PORT = 587
-SENDER_EMAIL = 'your_email@gmail.com'  # Apna email daalein
-SENDER_PASSWORD = 'your_email_password'  # Apna password ya app-specific password
+SENDER_EMAIL = 'noreply@royalearninghub.click'  # Apna email daalein
+SENDER_PASSWORD = '+bUtR?g=)p+2'  # Apna password ya app-specific password
 
 # Function to send email
 def send_email(receiver_email):
