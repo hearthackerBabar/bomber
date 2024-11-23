@@ -17,7 +17,7 @@
    pkg install python2
    ```
    ```bash
-   pip install git
+   pkg install git
    ```
    ```bash
    pip install secure-smtplib
