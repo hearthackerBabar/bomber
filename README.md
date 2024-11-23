@@ -1,5 +1,5 @@
 # Main README
-![Project Screenshot](93f89b965b719a175e2ac7de6c3e8b54.gif)
+![Project Screenshot](78574e73ef65e44c2f18e9f3b0430033.gif)
 
 
 
